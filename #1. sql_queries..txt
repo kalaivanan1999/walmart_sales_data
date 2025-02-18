@@ -1,0 +1,75 @@
+#1. Get the Average Rating for Each Category in Each Branch
+
+SELECT branch, category, AVG(rating) AS avg_rating
+FROM walmart
+GROUP BY branch, category;
+
+#2. Get the Total Number of Products Sold in Each Category
+
+SELECT category, SUM(quantity) AS total_sold
+FROM walmart
+GROUP BY category;
+
+#3. Find Products with Low Stock (Less Than 10 in Stock)
+
+SELECT category, quantity
+FROM walmart
+WHERE quantity < 10;
+
+
+#4.Get the Total Sales for Each Branch
+
+SELECT branch, SUM(quantity * unit_price) AS total_sales
+FROM walmart
+GROUP BY branch;
+
+#5.Find the Most Expensive Product in Each Category
+SELECT category,  MAX(unit_price) AS max_price
+FROM walmart
+GROUP BY category;
+
+#6.Get Branches with the Highest Average Rating for Products
+SELECT branch, AVG(rating) AS avg_rating
+FROM walmart
+GROUP BY branch
+ORDER BY avg_rating DESC
+LIMIT 1;
+
+#7. Get the Top 5 Best-Selling Products
+
+SELECT category, SUM(quantity) AS total_sold
+FROM walmart
+GROUP BY category
+ORDER BY total_sold DESC
+LIMIT 5;
+
+#8. Find the Product with the Highest Rating
+
+SELECT category, AVG(rating) AS avg_rating
+FROM walmart
+GROUP BY category
+ORDER BY avg_rating DESC
+LIMIT 1;
+
+#9.Get the Number of Products Sold by Category
+
+SELECT category, SUM(quantity) AS total_sold
+FROM walmart
+GROUP BY category;
+
+#10.Get Products with the Highest Price in Each Branch
+
+SELECT  category, MAX(unit_price) AS max_price
+FROM walmart
+GROUP BY category;
+
+
+
+
+
+
+
+
+
+
+
